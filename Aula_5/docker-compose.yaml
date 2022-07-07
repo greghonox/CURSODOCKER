@@ -1,0 +1,25 @@
+version: '3.3'
+
+services:
+  db: # nome do container Mysql
+    image: mysql:5.7 # mesmo que from do Dockerfile
+    volumes:
+      - db_data:/var/lib/mysql # caminho dentro do container
+    restart: always # garante que sempre vai manter os dados
+    env_file: # VARIAVEIS DE AMBIENTES
+      - ./config/db.env
+    ports:
+      - "3306:3306"
+
+  wordpress:
+    depends_on:
+      - db
+    image: wordpress:latest
+    ports:
+      - "80:80" # porta do pc:docker
+    restart: always
+    env_file: # forma que o wordpress vai acessar o db
+      - ./config/wp.env      
+  
+volumes: #é obrigado a declara variaveis da aplicação em volumes
+  db_data: {}

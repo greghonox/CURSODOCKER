@@ -1,0 +1,28 @@
+version: "3.3"
+services:
+  db:
+    build: ./mysql
+    restart: always
+    env_file:
+      - ./config/db.env
+    ports:
+      - "3306:3306"
+    networks:
+      - dockercompose
+    volumes:
+      - ./mysql/schema.sql:/docker-entrypoint-initdb.d/init.sql
+
+  flask:
+    build: ./flask
+    depends_on:
+      - db
+    ports:
+      - "5001:5001"
+    restart: always
+    networks:
+      - dockercompose
+         
+
+networks:
+  dockercompose:
+    
