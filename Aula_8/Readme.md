@@ -3,7 +3,7 @@
 ## Onde rodar ?
 
 ### Da para rodar local, mas a impressão de ver as orquestração dos serviços fica ruim. Para isso abaixo tem um local gratuito para testar.
-[!doker labs](https://labs.play-with-docker.com/)
+[doker labs](https://labs.play-with-docker.com/)
 
 ## Oque é ?
 
@@ -54,6 +54,21 @@ docker service ls
 docker service rm id
 ```
 
+## Criando *container swarm*
+### A idéia é utilizar um arquivo *docker-compose.yaml* para gerar seus containers.
+
+``` python
+docker stack deploy -c docker-compose.yaml nome_servicos
+docker stack deploy -c docker-compose.yaml flask_service
+```
+
+## *Scalando nos outros nodes*
+### Agora que temos um manager. Podemos *orquestrar para outros nodes executar* os container
+
+``` python
+docker service scale nome_servicos=quantidade
+docker service scale flask_servic=10
+```
 ## Para *recuperar o token do manager* faça:
 
 ```
