@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service # tipo de deployment
+metadata:
+  name: flask-service
+spec:
+  selector:
+    app: flask-app # mesmo nome do flask.yaml
+  ports: # serviço de comunição via rede
+    - protocol: 'TCP'
+      port: 5001
+      targetPort: 5001
+  type: LoadBalancer

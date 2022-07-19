@@ -26,3 +26,17 @@
 
 ## __Aula_7__
 ### Pensando ainda na aula anterior. Porém separando os arquivos de desenvolvimento com o container pronto. Dessa forma não precisa se build sempre para trabalhar com a nova versão.
+
+## __Aula_8__
+### *Docker Swarm*. Vamos falar de __orquestração__ de serviços; Assim como o kubernetes temos o poder de criar *manager, nods*. Com tudo os serviços ficam sendo escalados por meio de comandos que vemos aqui. Aqui vamos conhecer esses comandos básicos.
+
+## __Aula_9__
+### *Docker Swarm*. Ainda seguindo com novos comandos básicos. *kubectl + minikube*.
+
+## __Aula_10__
+### *Docker Swarm*. Agora vamos criar alguns serviços utilizando o *Dockerfile* junto com o *flask*.
+
+## __Aula_11__
+### *Docker Kubernetes*. 
+### Aqui vemos: inicialização do *minikube*, criação de serviços, exporndo os serviços(*pods*), gerando ip para acesso a aplicação no mundo real, atualização do container, remoção do mesmo, delegando toda as tarefas anteriores para arquivos *yaml* e muito mais.
+

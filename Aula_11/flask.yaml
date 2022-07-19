@@ -1,0 +1,17 @@
+apiVersion: apps/v1 # versão da aplicação
+kind: Deployment # tipo de arquivo (Deployment ou Service)
+metadata: # descrição de alguns objetivos
+  name: flask-kub # nome definido pelo desenvolvedor
+spec: # Especificação em geral
+  replicas: 4 # Replicas que vai ser instanciadas nos nods ou pods
+  selector:
+    matchLabels:
+      app: flask-app # nome definido pelo desenvolvedor
+  template: # definição de como ele vai rodar
+    metadata:
+      labels:
+        app: flask-app # nome definido pelo desenvolvedor
+    spec: # Especificação do container
+        containers:
+          - name: flask
+            image: greghono/flask-kubernetes:2
